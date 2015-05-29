@@ -9,7 +9,11 @@ var wordOrder = function(phrase) {
   }
 
   var keys = []
+  for (var word in count) {
+    keys.push([word, count[word]])
+  }
 
+  keys = keys.sort(function(a,b){return b[1] - a[1]});
 
 count.sort(function(a,b){return a - b})
 
@@ -25,5 +29,5 @@ count.sort(function(a,b){return a - b})
 //     return 0;
 //   })
 //
-  return count;
+  return keys;
 };
